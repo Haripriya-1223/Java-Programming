@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read array elements from first line
+        String line = sc.nextLine();
+        String[] arrStr = line.split(" ");
+        
+        int[] nums = new int[arrStr.length];
+        for (int i = 0; i < arrStr.length; i++) {
+            nums[i] = Integer.parseInt(arrStr[i]);
+        }
+
+        // Read target sum k
+        int k = Integer.parseInt(sc.nextLine());
+
+        int count = 0;
+
+        // Find all subarrays with sum = k
+        for (int i = 0; i < nums.length; i++) {
+            int sum = 0;
+            for (int j = i; j < nums.length; j++) {
+                sum += nums[j];
+                if (sum == k) {
+                    count++;
+                }
+            }
+        }
+
+        System.out.println("The count of the subarray whereas equals to the target is : " + count);
+
+        sc.close();
+    }
+}
